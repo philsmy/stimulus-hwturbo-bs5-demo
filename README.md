@@ -1,24 +1,78 @@
-# README
+## Rails Contractometer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+rails new contractometer -d postgresql --skip-test --skip-bundle --skip-turbolinks
+cd contractometer
+```
 
-Things you may want to cover:
+### Add Turbo and Stimulus
+```
+bundle add turbo-rails
+bundle install
+rails webpacker:install
+rails turbo:install
+bundle add stimulus-rails
+rails stimulus:install
+```
 
-* Ruby version
+### Add Bootstrap
+```
+yarn add bootstrap jquery @popperjs/core
+import 'bootstrap'
+import '../stylesheets/application'
+stylesheets/application.scss
+@import "~bootstrap/scss/bootstrap";
+```
+App layout:
+```
+    <div class='container'>
+      <%= yield %>
+    </div>
+```
 
-* System dependencies
+### Make our model
+```
+rails g scaffold time_tracker topic rate_per_hour:numeric started_at:datetime ended_at:datetime status
+rails db:create db:migrate
 
-* Configuration
+routes.rb
+root 'time_trackers#index'
+```
 
-* Database creation
+### Some niceness
 
-* Database initialization
+Add to workspace settings:
+```
+{
+  "emmet.includeLanguages": {
+    "erb": "html",
+    "ruby": "html",
+    "html.erb": "html"
+  },
+}
 
-* How to run the test suite
+gem 'rubocop-rails', group: :development, require: false
+bundle
+```
+### Add FontAwesome
+```
+yarn add @fortawesome/fontawesome-free
+import "@fortawesome/fontawesome-free/css/all"
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Create
+* _time_tracker.html.erb partial
+* app/javascript/controllers/timer_controller.js
 
-* Deployment instructions
+// in time_tracker.rb
+* add hotwire callback
+* add current scope
+* add running? method
+* add duration method
+* add before_update for ended_at
 
-* ...
+// time_trackers_helper
+* add duration_display
+
+// in time_trackers_controller
+* merge in create
