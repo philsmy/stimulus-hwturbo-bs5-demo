@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "time_tracker_form" do %>
+  <%= form_with(model: time_tracker) do |form| %>
+    <div class='row my-2'>
+      <div class='col-10'>
+        <%= form.text_field :topic, class: 'form-control', placeholder: 'What are you working on?' %>
+      </div>
+      <div class='col-1'>
+        <%= form.text_field :rate_per_hour, class: 'form-control' %>
+      </div>
+      <div class='col-1'>
+        <%= form.button :button, type: :submit do %>
+          <i class="fas fa-play"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

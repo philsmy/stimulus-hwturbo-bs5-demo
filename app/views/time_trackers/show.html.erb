@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @time_tracker.topic %>
+</p>
+
+<p>
+  <strong>Rate per hour:</strong>
+  <%= @time_tracker.rate_per_hour %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @time_tracker.started_at %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @time_tracker.ended_at %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @time_tracker.status %>
+</p>
+
+<%= link_to 'Edit', edit_time_tracker_path(@time_tracker) %> |
+<%= link_to 'Back', time_trackers_path %>
