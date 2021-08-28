@@ -1,6 +1,8 @@
 class TimeTracker < ApplicationRecord
   broadcasts_to ->(time_tracker) { :time_trackers }, inserts_by: :prepend, target: 'time_trackers'
 
+  validates :status, presence: true
+
   before_update :set_ended_at
   def set_ended_at
     self.ended_at = Time.current if status[/stopped/] && ended_at.nil?
