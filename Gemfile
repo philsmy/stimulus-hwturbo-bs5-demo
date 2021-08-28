@@ -50,3 +50,7 @@ gem "turbo-rails", "~> 0.6.0"
 gem "stimulus-rails", "~> 0.2.4"
 
 gem 'rubocop-rails', group: :development, require: false
+
+gem "marginalia", "~> 1.10"
+
+gem "memory_profiler", "~> 1.0"

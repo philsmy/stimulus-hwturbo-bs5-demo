@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: contractometer_production
-  username: contractometer
-  password: <%= ENV['CONTRACTOMETER_DATABASE_PASSWORD'] %>

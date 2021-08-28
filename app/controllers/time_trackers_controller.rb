@@ -3,9 +3,14 @@ class TimeTrackersController < ApplicationController
 
   # GET /time_trackers or /time_trackers.json
   def index
+    start = Time.current
     @time_trackers = TimeTracker.all.reverse
 
     @time_tracker = TimeTracker.new
+
+    Rails.logger.debug "The index method took #{Time.current - start}"
+
+    ::TASKS_LOGGER.debug "We did it! Awesome!"
   end
 
   # GET /time_trackers/1 or /time_trackers/1.json
