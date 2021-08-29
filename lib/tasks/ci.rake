@@ -3,7 +3,7 @@ unless Rails.env.production?
     require 'cucumber/rake/task'
     require 'coveralls/rake/task'
 
-    Coverall::RakeTask.new
+    Coveralls::RakeTask.new
 
     namespace :ci do
         desc 'Run all tests and generate coverage report'
